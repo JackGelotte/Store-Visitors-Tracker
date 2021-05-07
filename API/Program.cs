@@ -1,5 +1,7 @@
+using API.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,8 +15,11 @@ namespace API
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            DeleteCreateAndSeedDb(host);
+            host.Run();
         }
+
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
@@ -22,5 +27,15 @@ namespace API
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        // Reset Database. Smooth when developing.
+        public static async Task DeleteCreateAndSeedDb(IHost host)
+        {
+            using (IServiceScope scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                await Seed.Seeder(services);
+            }
+        }
     }
 }
