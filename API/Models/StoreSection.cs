@@ -10,6 +10,7 @@ namespace API.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int VisitorCount { get; set; }
         [InverseProperty("EnterStoreSection")]
         public ICollection<SensorLog> EnterSensorLog { get; set; }
         [InverseProperty("ExitStoreSection")]
