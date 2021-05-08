@@ -16,7 +16,7 @@ namespace API
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            DeleteCreateAndSeedDb(host);
+            DeleteCreateAndSeedDb(host).Wait();
             host.Run();
         }
 
@@ -28,7 +28,7 @@ namespace API
                     webBuilder.UseStartup<Startup>();
                 });
 
-        // Reset Database. Smooth when developing.
+        // Deletes then/or creates database. And will seed with mock data. QoL for developing.
         public static async Task DeleteCreateAndSeedDb(IHost host)
         {
             using (IServiceScope scope = host.Services.CreateScope())

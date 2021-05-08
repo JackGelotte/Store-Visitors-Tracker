@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
+    public enum Direction
+    {
+        Enter, Exit
+    }
     public class SensorLog
     {
         
         public int Id { get; set; }
-        [InverseProperty("Enter")]
-        public StoreSection Enter { get; set; }
-        [InverseProperty("Exit")]
-        public StoreSection Exit { get; set; }
+        public Direction Direction { get; set; }
+        public StoreSection EnterStoreSection { get; set; }
+        public StoreSection ExitStoreSection { get; set; }
         public DateTime TimeStamp { get; set; }
     }
 }

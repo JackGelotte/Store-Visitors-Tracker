@@ -11,7 +11,7 @@ namespace API.Data
     {
         public ApiContext(DbContextOptions<ApiContext>options) : base(options) { }
 
-        DbSet<SensorLog> SensorLogs { get; set; }
-        DbSet<StoreSection> StoreSections { get; set; }
+        public DbSet<SensorLog> SensorLogs { get; set; }
+        public DbSet<StoreSection> StoreSections { get; set; }
     }
 }
