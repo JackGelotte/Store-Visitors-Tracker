@@ -5,6 +5,8 @@
 
 When a customer moves from one section to another, the sensors would trigger and send to the API both sections.
 The API then logs this, with a timestamp. It also keeps a count on how many people are in each area.
+You can also call the API to get all sections and the current count on each section.
+And do a reset on a section.
 
 ---
 
@@ -14,3 +16,4 @@ The sensor sends "Electronics.Kitchen" to the API.
 The API creates a log, *Enter: Electronics, Exit: Kitchen, Timestamp: 09:45*.
 Then it changes the visitor count of each area accordingly.
 
+✨Issues✨
