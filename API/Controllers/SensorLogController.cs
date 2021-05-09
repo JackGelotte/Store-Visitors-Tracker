@@ -26,6 +26,7 @@ namespace API.Controllers
         {
             // The post-request simulates a sensor-trigger and the paramater "input" consists of which section was entered and which section was exited, separated by ".".
             // Example: "Electronics.Kitchen" says a visitor entered the section "Electronics" and exited the section "Kitchen".
+            // This was my way to handle the fact that if a visitor enters a section, they had to exit another.
             var enterName = input.Split(".")[0];
             var exitName = input.Split(".")[1];
 
@@ -37,6 +38,8 @@ namespace API.Controllers
                 .FirstOrDefaultAsync(ss => ss.Name == exitName);
             if (exitSection == default)
                 return BadRequest(new { Error = $"Section '{exitSection}' does not exists" });
+
+            // TODO: The visitor count can be less than zero.
 
             enterSection.VisitorCount++;
             exitSection.VisitorCount--;
@@ -54,7 +57,7 @@ namespace API.Controllers
             string warning = "";
             if (exitSection.VisitorCount < 0)
             {
-                warning = $"Warning, section '{exitSection.Name}' has less then 0 visitors. Something is wrong with the sensors, not the code.";
+                warning = $"Warning, section '{exitSection.Name}' has less then 0 visitors. Something is wrong with the sensors, not the code ;)";
             }
 
             return Created(Request.HttpContext.Request.Path, new
