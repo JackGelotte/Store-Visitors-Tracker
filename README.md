@@ -17,6 +17,6 @@ The API creates a log, *Enter: Electronics, Exit: Kitchen, Timestamp: 09:45*.
 Then it changes the visitor count of each area accordingly.
 
 ✨Issues✨
-- Currently doesn't deal with an entrance. i.e no visitors enter or leave the actual store. Works with mock-data for the now.
+- Currently doesn't deal with an entrance. i.e no visitors enter or leave the actual store. Works with mock-data for now.
 - A visitor can be in any section, and enter ANY section from it. Which is highly unlikely in a real scenario. However real sensors would deal with this.
 - Missing alot of errorhandling.
