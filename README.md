@@ -6,8 +6,8 @@ The API then logs this, with a timestamp. It also keeps a count on how many peop
 
 ---
 ** Example **
-A person moves from the "Kitchen"-section to the "Electronics"-section in a store. 
+__A person moves from the "Kitchen"-section to the "Electronics"-section in a store. 
 The sensor sends "Electronics.Kitchen" to the API. 
 The API creates a log, {Enter: Electronics, Exit: Kitchen, Timestamp: 09:45}.
-Then it changes the visitor count of each area accordingly.
+Then it changes the visitor count of each area accordingly.__
 ---
