@@ -4,7 +4,7 @@ When a customer moves from one section to another, the sensors would trigger and
 The API then logs this, with a timestamp. It also keeps a count on how many people are in each area.
 
 ---
-## Example 
+## Example ##
 A person moves from the "Kitchen"-section to the "Electronics"-section in a store. 
 The sensor sends "Electronics.Kitchen" to the API. 
 The API creates a log, {Enter: Electronics, Exit: Kitchen, Timestamp: 09:45}.
