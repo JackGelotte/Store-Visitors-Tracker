@@ -1,5 +1,5 @@
 # Store-Visitors-Tracker
-*Logs visitor count in a store, and it's sections.*
+###*Logs visitor count in a store, and it's sections.*###
 ---
 When a customer moves from one section to another, the sensors would trigger and send to the API both sections.
 The API then logs this, with a timestamp. It also keeps a count on how many people are in each area.
